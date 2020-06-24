@@ -1,26 +1,4 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-/* ==========================================================================
-   1. CSS Reset Code
-   ========================================================================== */
-
-/* 1.1. Eric Meyers Reset
-   http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-   ========================================================================== */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img,
 ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
@@ -41,7 +19,10 @@ footer, header, hgroup, menu, nav, section {
 }
 
 /* Force scrollbar */
-html { overflow-y: scroll; }
+html { 
+    overflow-y: scroll; 
+    font-size: 10px;
+}
 
 /* Align radios and text inputs with their label */
 
@@ -114,3 +95,77 @@ li {
   width: 97%; 
   margin: 0 auto;
 }
+/******************************** STYLING OF HOMEPAGE BEGINS************/
+.directory-menu {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 350px;
+    gap: 2rem;
+    grid-template-areas:
+      "o o o o t t t t h h h h"
+      "f f f f f f v v v v v v"
+      ;
+  }
+  .menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+  }
+  .menu-item:nth-child(1) {
+    grid-area: o;
+  }
+  .menu-item:nth-child(2) {
+    grid-area: t;
+  }
+  .menu-item:nth-child(3) {
+    grid-area: h;
+  }
+  .menu-item:nth-child(4) {
+    grid-area: f;
+  }
+  
+  .menu-item:nth-child(5) {
+    grid-area: v;
+  }
+  .content {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 2%;
+    align-items: center;
+    justify-content: center;
+    h1{
+        font: bolder;
+        font-size: 2.5rem;
+        color: #4a4a4a;
+        margin-bottom: 1rem;
+    }
+    .subtitle{
+        font-weight:lighter ;
+        color: #4a4a4a;
+        font-size: 1.6rem;
+    }
+  }
+
+
+
+
+
+
+
+
+
+  @media only screen and (max-width: 740px) {
+    .directory-menu {
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 240px;
+      grid-template-areas:
+        "o o o o"
+        "t t t t"
+        "h h h h"
+        "f f f f"
+        "v v v v";
+    }
+  }
+  
