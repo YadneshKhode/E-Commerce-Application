@@ -1,0 +1,10 @@
+.directory-menu {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 350px;
+    gap: 2rem;
+    grid-template-areas:
+        "o o o o t t t t h h h h"
+        "f f f f f f v v v v v v"
+    ;
+}
