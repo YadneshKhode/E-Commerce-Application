@@ -1,17 +1,50 @@
 .collection-preview {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 3rem;
-}
-
-.title {
-    font-size: 2.8rem;
-    margin-bottom: 2.5rem;
+    .title {
+        margin-bottom: 2rem;
+    }
 }
 
 .preview {
     display: flex;
     justify-content: space-between;
+    height: 500px;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-size: 2.8rem;
+    margin-bottom: 2.5rem;
+    cursor: default;
+    display: inline-block;
 }
 
 
+
+@media only screen and (min-width: 1024px) {
+    .title:hover{
+        transform: scale(1.1);
+    }
+}
+
+@media only screen and (max-width:995px) {
+    .preview {
+        ////////////////////////////////////////////////JHOOOLLLLLLLLLLLLLLLL
+        margin-bottom: 35rem;
+        ////////////////////////////////////////////////JHOOOLLLLLLLLLLLLLLLL
+
+        height: 500px;
+    }
+
+}
+
+@media only screen and (max-width:767px) {}
+
+@media only screen and (max-width:540px) {
+    .preview {
+        margin-bottom: 103rem;
+        height: 500px;
+    }
+}
+
+@media only screen and (max-width:320px) {}

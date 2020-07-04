@@ -1,13 +1,22 @@
-.sign-in h1 {
-    font-size: 4rem;
+.sign-in-title {
+    font-size: 2.5rem;
+    cursor: default;
+
 }
 
 .sign-in span {
-    font-size: 2.2rem;
-    margin: 2rem 0 8rem 0;
+    font-size: 1.7rem;
+    margin: 1rem 0 4rem 0;
     display: inline-block;
+    cursor: default;
 }
 
 .sign-in {
-    width: 40vw;
+    width: 50%;
+    margin:0 2rem;
+}
+@media only screen and (max-width:767px) {
+    .sign-in{
+        margin-bottom: 10rem;
+    }
 }

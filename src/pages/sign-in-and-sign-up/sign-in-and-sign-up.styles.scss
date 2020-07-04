@@ -1,6 +1,16 @@
-.sign-in-and-sign-up{
+.sign-in-and-sign-up {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-top: 5%;
+    justify-content: space-around;
+    margin-top: 2rem;
 }
+@media only screen and (min-width: 1024px) {}
+@media only screen and (max-width:995px) {
+}
+@media only screen and (max-width:767px) {
+    .sign-in-and-sign-up {
+    flex-direction: column;
+    }
+}
+@media only screen and (max-width:540px) {}
+@media only screen and (max-width:320px) {}

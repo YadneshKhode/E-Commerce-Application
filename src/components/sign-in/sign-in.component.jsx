@@ -22,9 +22,9 @@ class SignIn extends React.Component {
   };
   render() {
     return (
-      <div className="sign-in wrapper">
-        <h1>I already have an account</h1>
-        <span>Sign in with your email and password</span>
+      <div className="sign-in">
+        <h2 className='sign-in-title'>I already have an account</h2>
+        <span >Sign in with your email and password</span>
 
         <form onSubmit={this.handleSubmit}>
           <FormInput
