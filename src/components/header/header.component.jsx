@@ -44,12 +44,13 @@ const Header = ({ currentUser }) => {
       html.classList.remove("noscroll");
     }
   }
+
   return (
     <div className="header wrapper">
       <figure>
         <h1>
           <Link className="logo-container" to="/">
-            <Logo className="logo" />
+            <Logo className="logo"/>
           </Link>
         </h1>
       </figure>

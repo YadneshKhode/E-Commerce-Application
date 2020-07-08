@@ -4,7 +4,7 @@
 
 .form-input-label {
   display: block;
-  font-size: 2.5rem;
+  font-size: 2rem;
   position: absolute;
   top:-0.8rem;
   left: 0.5rem;
@@ -15,17 +15,17 @@
   border: none;
   border-bottom: 1px solid grey;
   outline: none;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   margin-bottom: 5rem ;
   width: 75%;
   &:focus~.form-input-label {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     top:-3rem;
     left: 0;
   }
 }
 .shrink{
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   top:-3rem;
   left: 0;
 }

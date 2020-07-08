@@ -13,6 +13,15 @@ class App extends React.Component {
       currentUser: null,
     };
   }
+  /*
+   unsubscribeFromAuth is initialised as null
+
+ unsubscribeFromAuth is reassigned to the return value of calling auth.onAuthStateChanged(). Yihua doesn't say this in the vid but this method returns another method: firebase.unsubscribe().
+
+(see docs here: https://firebase.google.com/docs/reference/js/firebase.auth.Auth#returns-firebase.unsubscribe)
+
+ so when unsubscribeFromAuth() is called inside the componentWillUnmount, it now has the value of firebase.unsubscribe(), which executes, closing the session
+  */
   unsbusbcribeFromAuth = null;
   componentDidMount() {
     this.unsbusbcribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
