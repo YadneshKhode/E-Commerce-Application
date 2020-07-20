@@ -3,15 +3,16 @@ import "./header.styles.scss";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../../firebase/firebase.utils";
-
+import { connect } from "react-redux";
 const Header = ({ currentUser }) => {
-  const header = document.querySelector(".header");
-  const logoContainer = document.querySelector(".logo-container");
-  const menuBtn = document.querySelector(".menu-btn");
-  const options = document.querySelector(".options");
-  const html = document.querySelector("html");
-  const menuBtnBurger = document.querySelector(".menu-btn__burger");
+ 
   function handleChange() {
+    const header = document.querySelector(".header");
+    const logoContainer = document.querySelector(".logo-container");
+    const menuBtn = document.querySelector(".menu-btn");
+    const options = document.querySelector(".options");
+    const html = document.querySelector("html");
+    const menuBtnBurger = document.querySelector(".menu-btn__burger");
     header.classList.toggle("active");
     logoContainer.classList.toggle("active");
     menuBtn.classList.toggle("active");
@@ -22,6 +23,12 @@ const Header = ({ currentUser }) => {
   }
 
   function handleLinkClickInsideHamburgerMenu() {
+    const header = document.querySelector(".header");
+    const logoContainer = document.querySelector(".logo-container");
+    const menuBtn = document.querySelector(".menu-btn");
+    const options = document.querySelector(".options");
+    const html = document.querySelector("html");
+    const menuBtnBurger = document.querySelector(".menu-btn__burger");
     if (header.classList.contains("active")) {
       header.classList.remove("active");
     }
@@ -46,11 +53,12 @@ const Header = ({ currentUser }) => {
   }
 
   return (
+    
     <div className="header wrapper">
       <figure>
         <h1>
           <Link className="logo-container" to="/">
-            <Logo className="logo"/>
+            <Logo className="logo" />
           </Link>
         </h1>
       </figure>
@@ -78,17 +86,27 @@ const Header = ({ currentUser }) => {
             onClick={() => {
               auth.signOut();
               handleLinkClickInsideHamburgerMenu();
-            }}>SIGN OUT</div>
+            }}
+          >
+            SIGN OUT
+          </div>
         ) : (
           <Link
             className="option"
             to="/signin"
             onClick={handleLinkClickInsideHamburgerMenu}
-          >SIGN IN</Link>
+          >
+            SIGN IN
+          </Link>
         )}
       </div>
     </div>
   );
 };
 
-export default Header;
+// This state in argument is the root reducer
+const mapStateToProp = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProp)(Header);

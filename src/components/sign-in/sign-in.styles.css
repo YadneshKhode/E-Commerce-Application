@@ -1,0 +1,23 @@
+.sign-in-title {
+  font-size: 2.2rem;
+  cursor: default;
+}
+
+.sign-in span {
+  font-size: 1.5rem;
+  margin: 1rem 0 4rem 0;
+  display: inline-block;
+  cursor: default;
+}
+
+.sign-in {
+  width: 50%;
+  margin: 0 2rem;
+}
+
+@media only screen and (max-width: 767px) {
+  .sign-in {
+    margin-bottom: 10rem;
+  }
+}
+/*# sourceMappingURL=sign-in.styles.css.map */

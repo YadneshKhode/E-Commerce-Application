@@ -3,7 +3,7 @@ import "./collection-item.styles.scss";
 const CollectionItem = ({ name, price, imageUrl }) => (
   <div className="collection-item">
     <div className="parent-image-container">
-      <div className="image" style={{ backgroundImage: `url(${imageUrl})` }} />
+      <img className="image" src = {`${imageUrl}`} alt = "pics"/>
     </div>
     <div className="collection-footer">
       <span className="name">{name}</span>
@@ -13,3 +13,4 @@ const CollectionItem = ({ name, price, imageUrl }) => (
 );
 
 export default CollectionItem;
+

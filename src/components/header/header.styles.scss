@@ -1,12 +1,14 @@
 .header {
     display: flex;
     justify-content: space-between;
-    // min-height: 8vh;
-    .options{
+    min-height: 8vh;
+
+    .options {
         width: 50%;
         display: flex;
         justify-content: flex-end;
     }
+
     .option {
         font-size: 2.2rem;
         font-weight: bold;
@@ -28,7 +30,7 @@
     height: 80px;
     cursor: pointer;
     transition: all .5s ease-in-out;
-    top: 2.1rem;
+    // top: 4rem;
     right: 1rem;
     display: none;
 }
@@ -64,6 +66,7 @@
 .menu-btn.open .menu-btn__burger {
     transform: translateX(-50px);
     background: transparent;
+    pointer-events: none;
 }
 
 .menu-btn.open .menu-btn__burger::before {
@@ -75,14 +78,16 @@
 }
 
 .noscroll {
-    position: fixed; 
+    position: fixed;
     overflow-y: scroll;
     width: 100%;
 }
+
 @media only screen and (min-width: 1024px) {
-    .option{
+    .option {
         cursor: pointer;
     }
+
     .logo-container:hover,
     .option:hover {
         transform: scale(1.1);
@@ -90,26 +95,25 @@
 }
 
 @media only screen and (max-width:767px) {
-    .options{
+    .options {
         display: none;
     }
-      .menu-btn {
+
+    .menu-btn {
         display: block;
         cursor: pointer;
         top: 4rem;
     }
+
   
-    .menu-btn.active {
-        display: flex;
-        top: 2rem;
-        right: 2rem;
+    .header .options {
+        display: none;
+        color: white;
     }
-
     .header .option {
-        color: #fff;
+      color: white;
     }
 
-    
     .header.active {
         display: block;
         height: 100vh;
@@ -118,9 +122,9 @@
         width: 100%;
         overflow: hidden;
     }
-    
-    .logo-container.active{
-         display: none;
+
+    .logo-container.active {
+        display: none;
     }
 
     .options.active {
@@ -136,16 +140,18 @@
         right: 0;
     }
 
-    .header .option.active {
-        display: none;
+    .header .options.active {
         color: white;
     }
 
     .menu-btn__burger.active {
         background: #fff;
     }
+
     .menu-btn__burger.active::before,
     .menu-btn__burger.active::after {
         background: #fff;
+        top: 2.2rem;
+        right: -1rem;
     }
 }
