@@ -59,4 +59,4 @@ const mapStateToProps = ({ user }) => ({
 const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
 });
-export default connect( mapStateToProps, mapDispatchToProps)(App); //pass null because we don't need any state from the roots reducer
+export default connect( mapStateToProps, mapDispatchToProps)(App); 

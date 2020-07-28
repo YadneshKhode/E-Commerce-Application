@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../../firebase/firebase.utils";
 import { connect } from "react-redux";
-const Header = ({ currentUser }) => {
- 
+import CartIcon from "../cart-icon/cart-icon.component";
+import CartDropDown from "../cart-dropdown/cart-dropdown.component";
+const Header = ({ currentUser, hidden }) => {
   function handleChange() {
     const header = document.querySelector(".header");
     const logoContainer = document.querySelector(".logo-container");
@@ -53,7 +54,6 @@ const Header = ({ currentUser }) => {
   }
 
   return (
-    
     <div className="header wrapper">
       <figure>
         <h1>
@@ -99,14 +99,20 @@ const Header = ({ currentUser }) => {
             SIGN IN
           </Link>
         )}
+        <CartIcon />
       </div>
+      {hidden ? null : <CartDropDown />}
+      {/* {!hidden && <CartDropDown /> } */}
     </div>
   );
 };
 
 // This state in argument is the root reducer
-const mapStateToProp = (state) => ({
-  currentUser: state.user.currentUser,
+// state.user.currentUser means state.root-reducer. => which gives us =>userReducer.currentUser
+// before destructuring in below statement it was state now we de structured it  these values compare with root-reducer
+const mapStateToProp = ({ user: { currentUser }, cart: { hidden } }) => ({
+  currentUser,
+  hidden,
 });
 
 export default connect(mapStateToProp)(Header);
