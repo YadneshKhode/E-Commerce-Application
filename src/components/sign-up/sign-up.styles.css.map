@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,QAAQ,CAAC;EACL,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,MAAM;CAajB;;AAjBD,AAMI,QANI,CAMJ,IAAI,CAAC;EACD,SAAS,EAAE,MAAM;EACjB,MAAM,EAAE,aAAa;EACrB,OAAO,EAAE,YAAY;EACrB,MAAM,EAAE,OAAO;CAClB;;AAXL,AAaI,QAbI,CAaJ,cAAc,CAAC;EACX,SAAS,EAAE,MAAM;EACjB,MAAM,EAAE,OAAO;CAClB",
-    "sources": [
-        "sign-up.styles.scss"
-    ],
-    "names": [],
-    "file": "sign-up.styles.css"
-}

@@ -1,11 +1,0 @@
-.directory-menu {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[12];
-      grid-template-columns: repeat(12, 1fr);
-  -ms-grid-rows: 350px;
-      grid-template-rows: 350px;
-  gap: 2rem;
-      grid-template-areas: "o o o o t t t t h h h h" "f f f f f f v v v v v v";
-}
-/*# sourceMappingURL=directory.styles.css.map */
