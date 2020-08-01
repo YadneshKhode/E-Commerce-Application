@@ -6,6 +6,9 @@ import { auth } from "../../firebase/firebase.utils";
 import { connect } from "react-redux";
 import CartIcon from "../cart-icon/cart-icon.component";
 import CartDropDown from "../cart-dropdown/cart-dropdown.component";
+import { createStructuredSelector } from "reselect";
+import { selectCartHidden } from "../../redux/cart/cart.selectors";
+import { selectCurrentUser } from "../../redux/user/user.selector";
 const Header = ({ currentUser, hidden }) => {
   function handleChange() {
     const header = document.querySelector(".header");
@@ -110,9 +113,19 @@ const Header = ({ currentUser, hidden }) => {
 // This state in argument is the root reducer
 // state.user.currentUser means state.root-reducer. => which gives us =>userReducer.currentUser
 // before destructuring in below statement it was state now we de structured it  these values compare with root-reducer
-const mapStateToProp = ({ user: { currentUser }, cart: { hidden } }) => ({
-  currentUser,
-  hidden,
+// const mapStateToProp = ({ user: { currentUser }, cart: { hidden } }) => ({
+//   currentUser,
+//   hidden,
+// });
+
+// createStructuredSelector will pass state props to all the selectors inside mapStateToProps
+//const mapStateToProp =(state)=>({
+//   currentUser: selectCurrentUser(state),
+//   hidden: selectCartHidden(state),
+// });
+const mapStateToProp = createStructuredSelector({
+  currentUser: selectCurrentUser,
+  hidden: selectCartHidden,
 });
 
 export default connect(mapStateToProp)(Header);
