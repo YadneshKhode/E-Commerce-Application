@@ -6,7 +6,7 @@ import { addItem } from "../../redux/cart/cart.actions";
 const CollectionItem = ({ item, addItem }) => {
   const { name, price, imageUrl } = item;
   return (
-    <div className="collection-item">
+    <div className="collection-item wrapper">
       <div className="parent-image-container">
         <img className="image" src={`${imageUrl}`} alt="pics" />
       </div>
@@ -14,9 +14,9 @@ const CollectionItem = ({ item, addItem }) => {
         <span className="name">{name}</span>
         <span className="price">${price}</span>
       </div>
-      <CustomButton inverted onClick={() => addItem(item)}>
-        Add To Cart
-      </CustomButton>
+      <CustomButton className = "custom-button" inverted onClick={() => addItem(item)}>
+          Add To Cart
+        </CustomButton>
     </div>
   );
 };
