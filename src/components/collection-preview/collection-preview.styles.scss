@@ -17,12 +17,16 @@
     margin-bottom: 2.5rem;
     cursor: default;
     display: inline-block;
+
+    a {
+        color: black;
+    }
 }
 
 
 
 @media only screen and (min-width: 1024px) {
-    .title:hover{
+    .title:hover {
         transform: scale(1.1);
     }
 }
