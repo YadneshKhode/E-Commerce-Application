@@ -113,7 +113,9 @@
     .header .option {
       color: white;
     }
-
+    .header .options.active {
+        color: white;
+    }
     .header.active {
         display: block;
         height: 100vh;
@@ -140,9 +142,7 @@
         right: 0;
     }
 
-    .header .options.active {
-        color: white;
-    }
+    
 
     .menu-btn__burger.active {
         background: #fff;

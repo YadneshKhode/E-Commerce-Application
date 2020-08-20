@@ -15,8 +15,8 @@ const config = {
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return; // If null don't do anything.
-  const userRef = firestore.doc(`users/${userAuth.uid}`);// even if it doesn't exist it will still return object
-  const snapshot = await userRef.get();// using get we get snapshot of reference
+  const userRef = firestore.doc(`users/${userAuth.uid}`); // even if it doesn't exist it will still return object
+  const snapshot = await userRef.get(); // using get we get snapshot of reference
   if (!snapshot.exists) {
     const { displayName, email } = userAuth;
     const createdAt = new Date();
@@ -27,12 +27,42 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         createdAt,
         ...additionalData,
       });
-      alert("LOGIN WAS SUCCESSFULy !!!!!!!!!!!!!!");
+      alert("LOGIN WAS SUCCESSFUL !!!!!!!!!!!!!!");
     } catch (error) {
       console.log("Error Creating User", error.message);
     }
   }
   return userRef;
+};
+
+export const addCollectionAndDocuments = async (
+  collectionKey,
+  objectsToAdd
+) => {
+  const collectionRef = firestore.collection(collectionKey);
+  const batch = firestore.batch();
+  objectsToAdd.forEach((obj) => {
+    const newDocRef = collectionRef.doc();
+    batch.set(newDocRef, obj);
+  });
+
+  return await batch.commit();
+};
+
+export const convertCollectionsSnapshotToMap = (collections) => {
+  const transformedCollection = collections.docs.map((doc) => {
+    const { title, items } = doc.data();
+    return {
+      routeName: encodeURI(title.toLowerCase()),
+      id: doc.id,
+      title,
+      items,
+    };
+  });
+  return transformedCollection.reduce((accumulator, collection) => {
+    accumulator[collection.title.toLowerCase()] = collection;
+    return accumulator;
+  }, {});
 };
 
 firebase.initializeApp(config);
