@@ -17,3 +17,19 @@
     }
   }
 }
+@media only screen and (max-width: 1024px) {
+  .collection-page .items {
+    grid-template-columns: 1fr 1fr;
+  }
+  .collection-item{
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .collection-page .items {
+    grid-template-columns: 1fr;
+  }
+  .collection-item{
+    width: 80%;
+  }
+}

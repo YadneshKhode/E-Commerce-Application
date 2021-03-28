@@ -10,14 +10,19 @@
     width: 35px;
     // height: 24px;
   }
-  .shopping-icon:hover{
-      transform: scale(1.1);
+  .shopping-icon:hover {
+    transform: scale(1.1);
   }
 
   .item-count {
     position: absolute;
     font-size: 18px;
     font-weight: bold;
-    bottom: 22px;
+    bottom: 30%;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .cart-icon .item-count {
+    bottom: 3%;
   }
 }

@@ -2,14 +2,14 @@ import React from "react";
 import "./header.styles.scss";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
-import { auth } from "../../firebase/firebase.utils";
 import { connect } from "react-redux";
 import CartIcon from "../cart-icon/cart-icon.component";
 import CartDropDown from "../cart-dropdown/cart-dropdown.component";
 import { createStructuredSelector } from "reselect";
 import { selectCartHidden } from "../../redux/cart/cart.selectors";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
-const Header = ({ currentUser, hidden }) => {
+import { signOutStart } from "../../redux/user/user.actions";
+const Header = ({ currentUser, hidden, signOutStart }) => {
   function handleChange() {
     const header = document.querySelector(".header");
     const logoContainer = document.querySelector(".logo-container");
@@ -76,21 +76,28 @@ const Header = ({ currentUser, hidden }) => {
         >
           SHOP
         </Link>
-        <Link
-          className="option"
-          onClick={handleLinkClickInsideHamburgerMenu}
-          to="/contact"
-        >
-          CONTACT
-        </Link>
-        {currentUser ? (
+
+        {/* {currentUser ? (
           <div
             className="option"
             onClick={() => {
-              auth.signOut();
+              signOutStart();
               handleLinkClickInsideHamburgerMenu();
             }}
           >
+            SIGN OUT
+          </div>
+        ) : (
+          <Link
+            className="option"
+            to="/signin"
+            onClick={handleLinkClickInsideHamburgerMenu}
+          >
+            SIGN IN
+          </Link>
+        )} */}
+        {currentUser ? (
+          <div className="option" onClick={signOutStart}>
             SIGN OUT
           </div>
         ) : (
@@ -128,7 +135,10 @@ const mapStateToProp = createStructuredSelector({
   hidden: selectCartHidden,
 });
 
-export default connect(mapStateToProp)(Header);
+const mapDispatchToProps = (dispatch) => ({
+  signOutStart: () => dispatch(signOutStart()),
+});
+export default connect(mapStateToProp, mapDispatchToProps)(Header);
 // import React from 'react';
 // import { Link } from 'react-router-dom';
 // import { connect } from 'react-redux';
