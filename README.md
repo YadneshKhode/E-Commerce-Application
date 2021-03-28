@@ -1,1 +1,1 @@
-
+This is an E-Commerce Application with features like categories, add to cart, working payment gateway and it is developed using React, Redux and Stripe. The whole app is developed with keeping performance in mind so things like code-reusability, logical coupling of code and memoisation are used everywhere possible.
